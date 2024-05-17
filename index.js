@@ -81,8 +81,21 @@ app.put('/update/:id', (req, res) => {
 
 })
 
+// app.delete('/delete/:id', (req, res) => {
+//     const id = req.body.id;
+//     db.query('DELETE FROM `Example Table 1` WHERE `id` = ?', [id], (err, result) => {
+//         if (err) {
+//             console.log(err);
+//             res.status(500).send("Error deleting value");
+//         } else {
+//             res.send("Value Deleted");
+//         }
+//     });
+// });
+
 app.delete('/delete/:id', (req, res) => {
-    const id = req.body.id;
+    const id = req.params.id;
+
     db.query('DELETE FROM `Example Table 1` WHERE `id` = ?', [id], (err, result) => {
         if (err) {
             console.log(err);
@@ -92,6 +105,7 @@ app.delete('/delete/:id', (req, res) => {
         }
     });
 });
+
 
 
 
