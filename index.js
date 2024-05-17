@@ -4,13 +4,10 @@ import { createConnection } from 'mysql';
 const PORT = process.env.PORT || 3306;
 
 
-
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-
 
 const db = createConnection({
     host: 'b07vwt9uzfdragdolvqs-mysql.services.clever-cloud.com',
@@ -81,18 +78,6 @@ app.put('/update/:id', (req, res) => {
 
 })
 
-// app.delete('/delete/:id', (req, res) => {
-//     const id = req.body.id;
-//     db.query('DELETE FROM `Example Table 1` WHERE `id` = ?', [id], (err, result) => {
-//         if (err) {
-//             console.log(err);
-//             res.status(500).send("Error deleting value");
-//         } else {
-//             res.send("Value Deleted");
-//         }
-//     });
-// });
-
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
 
@@ -105,9 +90,6 @@ app.delete('/delete/:id', (req, res) => {
         }
     });
 });
-
-
-
 
 
 app.listen(PORT, () => {
